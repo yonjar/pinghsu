@@ -40,7 +40,7 @@
 			</div>
 			<div class="meta-item meta-posts">
 				<h3 class="meta-title">RECENT POSTS</h3>
-                <?php getRecentPosts($this,8); ?>
+                <?php getRecentPostsNotTweet($this,8); ?>
 			</div>
             <div class="meta-item meta-comments">
                 <h3 class="meta-title">RECENT COMMENTS</h3>

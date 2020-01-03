@@ -198,6 +198,23 @@ function getRecentPosts($obj,$pageSize){
     }
 }
 
+function getRecentPostsNotTweet($obj,$pageSize){
+    $db = Typecho_Db::get();
+    $rows = $db->fetchAll($db->select('table.contents.cid')
+       ->from('table.contents')
+       ->join('table.relationships','table.contents.cid = table.relationships.cid')
+       ->join('table.metas','table.relationships.mid = table.metas.mid')
+       ->where('table.contents.type = ? AND table.contents.status = ? AND table.metas.slug != ? AND table.metas.type = ?', 'post', 'publish', 'tweet', 'category')
+       ->order('table.contents.created', Typecho_Db::SORT_DESC)
+       ->limit($pageSize));
+    foreach($rows as $row){
+        $cid = $row['cid'];
+        $apost = $obj->widget('Widget_Archive@post_'.$cid, 'type=post', 'cid='.$cid);
+        $output = '<li><a href="'.$apost->permalink .'">'. $apost->title .'</a></li>';
+        echo $output;
+    }
+}
+
 function randBgIco(){
     $bgIco=array('book','game','note','chat','code','image','web','link','design','lock');
     return $bgIco[mt_rand(0,9)];
@@ -220,7 +237,7 @@ function theNext($widget, $default = NULL){
     $content = $db->fetchRow($sql);
     if ($content) {
         $content = $widget->filter($content);
-        $link = '<a href="' . $content['permalink'] . '" title="' . $content['title'] . '">←</a>';
+        $link = '<a href="' . $content['permalink'] . '" title="' . $content['title'] . '"><i class="fas fa-arrow-left"></i></a>';
         echo $link;
     } else {
         echo $default;
@@ -239,7 +256,7 @@ function thePrev($widget, $default = NULL){
     $content = $db->fetchRow($sql);
     if ($content) {
         $content = $widget->filter($content);
-        $link = '<a href="' . $content['permalink'] . '" title="' . $content['title'] . '">→</a>';
+        $link = '<a href="' . $content['permalink'] . '" title="' . $content['title'] . '"><i class="fas fa-arrow-right"></i></a>';
         echo $link;
     } else {
         echo $default;
@@ -297,4 +314,31 @@ function compressHtml($html_source) {
 
 function seoSetting($obj){
 
+}
+
+function get_post_view($archive){
+    $cid    = $archive->cid;
+    $db     = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
+        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        echo 0;
+        return;
+    }
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
+    if ($archive->is('single')) {
+ $views = Typecho_Cookie::get('extend_contents_views');
+        if(empty($views)){
+            $views = array();
+        }else{
+            $views = explode(',', $views);
+        }
+if(!in_array($cid,$views)){
+       $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
+array_push($views, $cid);
+            $views = implode(',', $views);
+            Typecho_Cookie::set('extend_contents_views', $views); //记录查看cookie
+        }
+    }
+    echo $row['views'];
 }

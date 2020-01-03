@@ -69,44 +69,57 @@ $this->need('header.php');
 			</div>
 			<?php endif; ?>
 			<?php if ($this->options->postListSwitch == 'oneList'): ?>
+			<?php if ($this->category == 'tweet'): ?>
+			<div class="post-onelist-item tweet">
+				<div class="post-tweet-item-container">
+					<div class="tweet-item-info">
+						<div class="item-content">
+							<p><?php $this->excerpt(300, '...');?></p>
+						</div>
+						<div class="item-meta">
+							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date("F j, Y, H:i"); ?></time>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php else : ?>
 			<div class="post-onelist-item">
 				<div class="post-onelist-item-container">
-					<a href="<?php $this->permalink(); ?>">
 					<?php if (array_key_exists('thumb',unserialize($this->___fields()))): ?>
-						<div class="onelist-item-thumb <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>" style="background-image:url(<?php parseFieldsThumb($this);?>);"></div>
+						<a href="<?php $this->permalink(); ?>"><div class="onelist-item-thumb <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>" style="background-image:url(<?php parseFieldsThumb($this);?>);"></div></a>
             <?php else : ?>
             <?php $thumb = showThumb($this,null,true);?>
             <?php if(!empty($thumb)):?>
-            	<div class="onelist-item-thumb <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>" style="background-image:url(<?php echo $thumb;?>);"></div>
-        	<?php else : ?>
-        		<div class="onelist-item-thumb <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>" style="background-image:url(<?php $this->options->themeUrl('images/thumbs/'.mt_rand(0,9).'.jpg'); ?>);"></div>
-            <?php endif; ?>
+            	<a href="<?php $this->permalink(); ?>"><div class="onelist-item-thumb <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>" style="background-image:url(<?php echo $thumb;?>);"></div></a>
+        	<?php endif; ?>
 					<?php endif; ?>
-					</a>
+					
 					<div class="onelist-item-info">
 						<div class="item-title">
 							<a href="<?php $this->permalink(); ?>"><?php $this->title(); ?></a>
 						</div>
 						<div class="item-meta">
-							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"> Published on <?php $this->date('M j, Y'); ?></time> in <?php $this->category(''); ?> </a>
-						</div>
+							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <?php $this->date('M j, Y'); ?></time> 
+							/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
+							/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>						</div>
 						<div class="item-meta-hr <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>"></div>
 						<div class="item-content">
 							<p><?php $this->excerpt(150, '...');?></p>
 						</div>
 						<div class="item-readmore">
-							<a href="<?php $this->permalink(); ?>"> Continue Reading → </a>
+							<a href="<?php $this->permalink(); ?>"> Continue Reading <i class="fas fa-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<?php endif; ?>
+			<?php endif; ?>
 		<?php endwhile; ?>
 		</div>
 	</div>
 	<div class="lists-navigator clearfix">
-    <?php $this->pageNav('←','→','2','...'); ?>
-  </div>
+    	<?php $this->pageNav('<i class="fas fa-arrow-left"></i>','<i class="fas fa-arrow-right"></i>','2','...'); ?>
+  	</div>
 </div>
 
 <?php $this->need('footer.php'); ?>

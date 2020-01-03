@@ -15,6 +15,9 @@ $this->need('header.php');
     $year=0; $mon=0; $i=0; $j=0;
     $output = '<div class="categorys-item">';
     while($archives->next()){
+        if ($archives->category == 'tweet') {
+            continue;
+        }
         $year_tmp = date('Y',$archives->created);
         $mon_tmp = date('m',$archives->created);
         $y=$year; $m=$mon;

@@ -11,7 +11,8 @@
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-transform"/>
-    <meta http-equiv="Cache-Control" content="no-siteapp"/><?php if($this->options->favicon): ?>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">    <?php if($this->options->favicon): ?>
     <link rel="shortcut icon" href="<?php $this->options->favicon(); ?>"><?php endif;?><?php if($this->options->iosicon): ?>
     <link rel="apple-touch-icon" href="<?php $this->options->iosicon();?>"><?php endif; ?>
     <title><?php $this->archiveTitle(array(
@@ -25,6 +26,7 @@
     <?php $this->header('keywords=&generator=&template=&pingback=&xmlrpc=&wlw=&commentReply=&rss1=&rss2=&atom='); ?>
     <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/xcode.min.css" rel="stylesheet">
     <link href="<?php $this->options->themeUrl('style.min.css?20170331'); ?>" rel="stylesheet">
+    <link href="<?php $this->options->themeUrl('my.style.css'); ?>" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
