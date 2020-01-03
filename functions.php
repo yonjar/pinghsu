@@ -205,6 +205,7 @@ function getRecentPostsNotTweet($obj,$pageSize){
        ->join('table.relationships','table.contents.cid = table.relationships.cid')
        ->join('table.metas','table.relationships.mid = table.metas.mid')
        ->where('table.contents.type = ? AND table.contents.status = ? AND table.metas.slug != ? AND table.metas.type = ?', 'post', 'publish', 'tweet', 'category')
+       ->group('table.contents.cid')
        ->order('table.contents.created', Typecho_Db::SORT_DESC)
        ->limit($pageSize));
     foreach($rows as $row){
