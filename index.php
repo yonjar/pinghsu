@@ -74,7 +74,7 @@ $this->need('header.php');
 				<div class="post-tweet-item-container">
 					<div class="tweet-item-info">
 						<div class="item-content">
-							<p><?php $this->excerpt(300, '...');?></p>
+							<?php parseContent($this); ?>
 						</div>
 						<div class="item-meta">
 							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date("F j, Y, H:i"); ?></time>

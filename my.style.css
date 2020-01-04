@@ -35,9 +35,9 @@ p iframe {
   background-color: #fff;
   box-shadow: 2px 2px 8px #d6d6d6;
 }
-.tweet .item-content p {
-  font-size: 21px;
-}
+/* .tweet .item-content p {
+  font-size: 18px;
+} */
 .tweet .item-meta {
   text-align: right;
   color: #dedada;
