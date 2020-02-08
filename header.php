@@ -24,7 +24,7 @@
     ), '', ' - '); ?><?php $this->options->title(); ?></title>
     <meta name="keywords" content="<?php $this->keywords(); ?>" />
     <?php $this->header('keywords=&generator=&template=&pingback=&xmlrpc=&wlw=&commentReply=&rss1=&rss2=&atom='); ?>
-    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/xcode.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/<?php $this->options->useHighlineCSS();?>.min.css" rel="stylesheet">
     <link href="<?php $this->options->themeUrl('style.min.css?20170331'); ?>" rel="stylesheet">
     <link href="<?php $this->options->themeUrl('my.style.css'); ?>" rel="stylesheet">
     <!--[if lt IE 9]>
