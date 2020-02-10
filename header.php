@@ -26,7 +26,7 @@
     <?php $this->header('keywords=&generator=&template=&pingback=&xmlrpc=&wlw=&commentReply=&rss1=&rss2=&atom='); ?>
     <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/<?php $this->options->useHighlineCSS();?>.min.css" rel="stylesheet">
     <link href="<?php $this->options->themeUrl('style.min.css?20170331'); ?>" rel="stylesheet">
-    <link href="<?php $this->options->themeUrl('my.style.css'); ?>" rel="stylesheet">
+    <link href="<?php $this->options->themeUrl('my.style.min.css'); ?>" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
