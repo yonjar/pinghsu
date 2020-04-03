@@ -99,15 +99,12 @@ $this->need('header.php');
 							<a href="<?php $this->permalink(); ?>"><?php $this->title(); ?></a>
 						</div>
 						<div class="item-meta">
-							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
+							<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-calendar-alt"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
 							/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
 							/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>						</div>
 						<div class="item-meta-hr <?php if ($this->options->colorBgPosts == 'defaultColor'): ?> bg-deepgrey<?php elseif ($this->options->colorBgPosts == 'customColor'): ?><?php if (array_key_exists('green',unserialize($this->___fields()))): ?> bg-green<?php elseif (array_key_exists('red',unserialize($this->___fields()))): ?> bg-red<?php elseif (array_key_exists('yellow',unserialize($this->___fields()))): ?> bg-yellow<?php elseif (array_key_exists('blue',unserialize($this->___fields()))): ?> bg-blue<?php elseif (array_key_exists('purple',unserialize($this->___fields()))): ?> bg-purple<?php else : ?> bg-<?php echo randBgColor(); ?><?php endif; ?><?php endif; ?>"></div>
 						<div class="item-content">
 							<p><?php $this->excerpt(150, '...');?></p>
-						</div>
-						<div class="item-readmore">
-							<a href="<?php $this->permalink(); ?>"><i class="fas fa-arrow-right"></i> MORE </a>
 						</div>
 					</div>
 				</div>

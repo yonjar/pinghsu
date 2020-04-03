@@ -32,22 +32,26 @@
                         <?php endif; ?>
                     </a>
 					<div class="info-text">
-                    	<p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
-						<p>Powered by <a href="./admin/" target="_blank" rel="nofollow">Typecho</a></p>
+                    	<p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank" rel="noreferrer">Pinghsu</a> by <a href="https://github.com/yonjar/pinghsu" target="_blank" rel="noreferrer">Yonjar魔改</a></p>
+						<p>Powered by <a href="<?php $this->options->siteUrl(); ?>admin/" target="_blank" rel="nofollow">Typecho</a></p>
 						<p>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></p>
 					</div>
 				</div>
 			</div>
 			<div class="meta-item meta-posts">
-				<h3 class="meta-title">RECENT POSTS</h3>
-                <?php getRecentPostsNotTweet($this,8); ?>
+                <h3 class="meta-title">RECENT POSTS</h3>
+                <ul>
+                    <?php getRecentPostsNotTweet($this,8); ?>
+                </ul>
 			</div>
             <div class="meta-item meta-comments">
                 <h3 class="meta-title">RECENT COMMENTS</h3>
-                <?php $this->widget('Widget_Comments_Recent','pageSize=8')->to($comments); ?>
-                <?php while($comments->next()): ?>
-                <li><a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?> : <?php $comments->excerpt(25, '...'); ?></a></li>
-                <?php endwhile; ?>
+                <ul>
+                    <?php $this->widget('Widget_Comments_Recent','pageSize=8')->to($comments); ?>
+                    <?php while($comments->next()): ?>
+                    <li><a href="<?php $comments->permalink(); ?>"><?php $comments->author(false); ?> : <?php $comments->excerpt(25, '...'); ?></a></li>
+                    <?php endwhile; ?>
+                </ul>
             </div>
 		</div>
 	</div>
@@ -227,6 +231,8 @@ addCommentInputValue();
 <?php endif; ?>
 <?php $this->footer(); ?>
 <script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+<script src="<?php $this->options->themeUrl('js/anime.min.js'); ?>"></script>
+<script src="<?php $this->options->themeUrl('js/index.min.js'); ?>"></script>
 <?php if ($this->options->useHighline == 'able'): ?>
 <script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
 <?php endif; ?>

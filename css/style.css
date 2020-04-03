@@ -162,16 +162,16 @@ pre {
   margin: 20px 0;
 }
 code {
-  font-family: SF mono, Menlo, Bitstream Vera Sans Mono, DejaVu Sans Mono, Monaco,
-    Consolas, monospace;
-  font-size: 13px;
-  margin: 0 3px;
+  font-family: SF mono, Menlo, Bitstream Vera Sans Mono, DejaVu Sans Mono,
+    Monaco, Consolas, monospace;
+  /* font-size: 13px; */
+  /* margin: 0 3px; */
   /* padding: 2px 6px; */
-  border-radius: 3px;
+  /* border-radius: 3px; */
   /* background-color: #f7f7f7; */
 }
 pre code {
-  font-size: 13px;
+  /* font-size: 13px; */
   display: block;
   /* overflow: auto; prism.css */
   /* padding: 1.3em; */
@@ -984,10 +984,10 @@ textarea:-ms-input-placeholder {
   /* background: #f7f7f7; */
   text-shadow: none;
 }
-.post-content pre code {
+/* .post-content pre code {
   line-height: 20px;
   margin: 0;
-}
+} */
 .post-content p a {
   color: #313131;
   border-bottom: 1px solid #ccc;
@@ -1431,8 +1431,8 @@ textarea:-ms-input-placeholder {
   bottom: 0;
   left: 0;
   height: 48px;
-  border-top: 1px solid #e0e0e0;
-  background-color: #fff;
+  /* border-top: 1px solid #e0e0e0; */
+  /* background-color: #fff; */
 }
 .post-bottom-bar .bottom-bar-inner {
   max-width: 900px;

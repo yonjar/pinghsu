@@ -10,8 +10,8 @@
 				<?php $this->title() ?>
 			</div>
 			<div class="post-header-thumb-meta">
-				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
-					/ <i class="fas fa-folder"></i> <?php $this->category(''); ?> 
+				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-calendar-alt"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
+					/ <i class="fas fa-folder-open"></i> <?php $this->category(''); ?> 
 					/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
 					/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>			
 			</div>
@@ -32,8 +32,8 @@
 				<?php $this->title() ?>
 			</div>
 			<div class="post-header-thumb-meta">
-				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
-				/ <i class="fas fa-folder"></i> <?php $this->category(''); ?> 
+				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-calendar-alt"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
+				/ <i class="fas fa-folder-open"></i> <?php $this->category(''); ?> 
 				/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
 				/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>
 			</div>
@@ -52,8 +52,8 @@
 				<?php $this->title() ?>
 			</div>
 			<div class="post-header-thumb-meta">
-				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
-				/ <i class="fas fa-folder"></i> <?php $this->category(''); ?> 
+				<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-calendar-alt"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
+				/ <i class="fas fa-folder-open"></i> <?php $this->category(''); ?> 
 				/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
 				/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>			</div>
 			<div class="post-tags">
@@ -70,8 +70,8 @@
 			<?php $this->title() ?>
 		</h1>
 		<div class="post-data">
-			<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-clock"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
-			/ <i class="fas fa-folder"></i> <?php $this->category(' & '); ?> 
+			<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><i class="far fa-calendar-alt"></i> <span class="bold"><?php $this->date('M'); ?></span><?php $this->date(' j, Y'); ?></time> 
+			/ <i class="fas fa-folder-open"></i> <?php $this->category(' & '); ?> 
 			/ <i class="far fa-comment-dots"></i> <a href="#comments"><?php $this->commentsNum(_t(' 0 '), _t(' 1 '), _t(' %d ')); ?></a> 
 			/ <i class="far fa-eye"></i> <?php get_post_view($this) ?>
 		</div>
@@ -87,7 +87,7 @@
 	</div>
 </article>
 
-<div id="post-bottom-bar" class="post-bottom-bar">
+<div id="post-bottom-bar" class="post-bottom-bar bg-glass">
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
 			<span class="bottom-bar-item"><i class="fas fa-share"></i></span>
@@ -97,8 +97,8 @@
 		<div class="bottom-bar-items right">
 			<span class="bottom-bar-item"><?php theNext($this); ?></span>
 			<span class="bottom-bar-item"><?php thePrev($this); ?></span>
-			<span class="bottom-bar-item"><a href="#footer"><i class="fas fa-arrow-down"></i></a></span>
-			<span class="bottom-bar-item"><a href="#"><i class="fas fa-arrow-up"></i></a></span>
+			<span class="bottom-bar-item go-down-btn"><a href="javascript:void(0);"><i class="fas fa-arrow-down"></i></a></span>
+			<span class="bottom-bar-item go-top-btn"><a href="javascript:void(0);"><i class="fas fa-arrow-up"></i></a></span>
 		</div>
 	</div>
 </div>
