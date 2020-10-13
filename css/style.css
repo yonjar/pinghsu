@@ -1384,6 +1384,9 @@ textarea:-ms-input-placeholder {
   top: 100px;
   display: inline-block;
   text-align: left;
+  padding: 3px 15px;
+  border-radius: 10px;
+  border: 2px solid #eee;
   /* height: 400px; */
   /* overflow-y: scroll; */
 }
@@ -1395,18 +1398,15 @@ textarea:-ms-input-placeholder {
 }
 #directory > ul {
   position: relative;
-  border-left: 1px solid #ddd;
+  /* border-left: 1px solid #ddd; */
 }
 #directory > ul > li::before {
   position: relative;
   top: 0;
   left: -4px;
   display: inline-block;
-  width: 7px;
-  height: 7px;
-  content: "";
-  border-radius: 50%;
-  background-color: #eb5055;
+  content: "#";
+  color: #eb5055;
 }
 #directory ul li a {
   display: inline-table;

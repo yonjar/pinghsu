@@ -1,3 +1,13 @@
+function getElementTop(element) {
+  var actualTop = element.offsetTop;
+  var current = element.offsetParent;
+  while (current !== null) {
+    actualTop += current.offsetTop + current.clientTop;
+    current = current.offsetParent;
+  }
+  return actualTop;
+}
+
 const scrollElement =
   window.document.scrollingElement ||
   window.document.body ||
@@ -11,7 +21,7 @@ goTopBtn.addEventListener("click", () => {
     targets: scrollElement,
     scrollTop: 0,
     duration: 500,
-    easing: "easeInOutQuad"
+    easing: "easeInOutQuad",
   });
 });
 
@@ -20,6 +30,22 @@ goDownBtn.addEventListener("click", () => {
     targets: scrollElement,
     scrollTop: document.body.offsetHeight,
     duration: 500,
-    easing: "easeInOutQuad"
+    easing: "easeInOutQuad",
   });
 });
+
+if (location.href.indexOf("archives") > 0) {
+  const directory = document.querySelector("#directory ul");
+
+  directory.addEventListener("click", (e) => {
+    e.preventDefault();
+    let elem = e.target;
+    let targetElem = document.querySelector(elem.getAttribute("href"));
+    anime({
+      targets: scrollElement,
+      scrollTop: getElementTop(targetElem),
+      duration: 500,
+      easing: "easeInOutQuad",
+    });
+  });
+}
