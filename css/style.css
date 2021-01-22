@@ -80,27 +80,27 @@ h6 tt {
   font-size: inherit;
 }
 h1 {
-  font-size: 1.4em;
+  font-size: 1.7em;
   color: #222;
 }
 h2 {
-  font-size: 1.3em;
+  font-size: 1.6em;
   color: #333;
 }
 h3 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #444;
 }
 h4 {
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: #555;
 }
 h5 {
-  font-size: 1em;
+  font-size: 1.2em;
   color: #555;
 }
 h6 {
-  font-size: 1em;
+  font-size: 1.2em;
   color: #555;
 }
 body > h1:first-child,
@@ -947,11 +947,11 @@ textarea:-ms-input-placeholder {
   padding: 30px 25px 20px;
 }
 .page-page {
-  max-width: 700px;
+  max-width: 800px;
   padding: 130px 25px 20px;
 }
 .post-content p {
-  font-size: 14px;
+  font-size: 16px;
   word-wrap: break-word;
   word-break: break-word;
 }
@@ -961,9 +961,10 @@ textarea:-ms-input-placeholder {
 .post-content h4,
 .post-content h5,
 .post-content h6 {
-  font-weight: 500;
+  font-weight: 600;
   position: relative;
   margin: 20px 0;
+  display: inline-block;
 }
 .post-content h1::before,
 .post-content h2::before,
@@ -971,12 +972,14 @@ textarea:-ms-input-placeholder {
 .post-content h4::before,
 .post-content h5::before,
 .post-content h6::before {
-  font-weight: 600;
+  content: "";
+  width: 100%;
+  height: 8px;
+  background-color: #f1a7a7;
   position: absolute;
-  top: 0;
-  left: -15px;
-  content: "#";
-  color: #eb5055;
+  left: 0;
+  bottom: 24%;
+  z-index: -1;
 }
 .post-content pre {
   overflow-x: auto;
@@ -1355,7 +1358,7 @@ textarea:-ms-input-placeholder {
 .directory-content {
   position: relative;
   z-index: 0;
-  max-width: 720px;
+  max-width: 800px;
   margin-right: auto !important;
   margin-left: auto !important;
   text-align: right;
